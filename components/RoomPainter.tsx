@@ -187,18 +187,22 @@ export default function RoomPainter() {
 
       {/* ── Header ── */}
       <header className="bg-corgan-navy text-white shadow-lg sticky top-0 z-20">
-        <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <div className="w-9 h-9 sm:w-11 sm:h-11 rounded bg-corgan-gold flex items-center justify-center shadow flex-shrink-0">
-              <span className="text-white font-black text-xl sm:text-2xl leading-none">C</span>
-            </div>
-            <div>
-              <p className="font-bold tracking-widest text-xs sm:text-sm leading-tight">CORGAN ENTERPRISES</p>
-              <p className="text-corgan-gold-light text-xs font-medium">AI Room Colour Visualizer</p>
+        <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between gap-4">
+          {/* Logo */}
+          <div className="flex items-center gap-4 flex-shrink-0">
+            <img
+              src="/corgan-logo-white.png"
+              alt="Corgan Enterprises"
+              className="h-10 sm:h-12 w-auto object-contain"
+            />
+            <div className="hidden sm:block border-l border-white/20 pl-4">
+              <p className="text-corgan-gold-light text-xs font-semibold uppercase tracking-widest leading-tight">AI Room Colour Visualizer</p>
+              <p className="text-white/50 text-[10px] mt-0.5">Powered by GPT-4o &amp; gpt-image-1</p>
             </div>
           </div>
-          <p className="hidden md:block text-xs text-corgan-navy-light text-right leading-5">
-            100% Indigenous-Owned Métis<br />General Contracting &amp; Facility Services
+          {/* Tagline */}
+          <p className="hidden lg:block text-[11px] text-corgan-gold-light text-right leading-relaxed font-light italic">
+            Building Trust. Delivering Excellence.<br />Strengthening Communities.
           </p>
         </div>
         <BrandStripe />
