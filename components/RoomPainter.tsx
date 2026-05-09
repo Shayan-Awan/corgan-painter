@@ -69,14 +69,32 @@ export default function RoomPainter() {
       : { hex: recs[selectedIdx].hex, name: recs[selectedIdx].name };
 
   const loadFile = useCallback((file: File) => {
-    if (!file.type.startsWith("image/")) return;
+    const isImage = file.type.startsWith("image/") || /\.(heic|heif)$/i.test(file.name);
+    if (!isImage) return;
     const reader = new FileReader();
     reader.onload = (e) => {
       const dataUrl = e.target?.result as string;
-      setOriginalUrl(dataUrl);
-      setImageBase64(dataUrl.split(",")[1]);
-      setMimeType(file.type);
-      setImageLoaded(true);
+      // Convert to JPEG via canvas — handles HEIC/HEIF from iPhone cameras
+      const img = new window.Image();
+      img.onload = () => {
+        const canvas = document.createElement("canvas");
+        canvas.width = img.naturalWidth;
+        canvas.height = img.naturalHeight;
+        canvas.getContext("2d")!.drawImage(img, 0, 0);
+        const jpeg = canvas.toDataURL("image/jpeg", 0.92);
+        setOriginalUrl(jpeg);
+        setImageBase64(jpeg.split(",")[1]);
+        setMimeType("image/jpeg");
+        setImageLoaded(true);
+      };
+      img.onerror = () => {
+        // Fallback if canvas decode fails
+        setOriginalUrl(dataUrl);
+        setImageBase64(dataUrl.split(",")[1]);
+        setMimeType(file.type || "image/jpeg");
+        setImageLoaded(true);
+      };
+      img.src = dataUrl;
       setGeneratedUrl(null);
       setRecs([]);
       setSelectedIdx(null);
