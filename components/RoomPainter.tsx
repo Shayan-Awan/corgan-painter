@@ -211,11 +211,13 @@ export default function RoomPainter() {
         <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between gap-4">
           {/* Logo */}
           <div className="flex items-center gap-4 flex-shrink-0">
-            <img
-              src="/corgan-logo-white.png"
-              alt="Corgan Enterprises"
-              className="h-10 sm:h-12 w-auto object-contain"
-            />
+            <a href="https://corgan.ca" target="_blank" rel="noopener noreferrer">
+              <img
+                src="/corgan-logo-white.png"
+                alt="Corgan Enterprises"
+                className="h-10 sm:h-12 w-auto object-contain"
+              />
+            </a>
           </div>
           {/* Tagline */}
           <p className="hidden lg:block text-[11px] text-corgan-gold-light text-right leading-relaxed font-light italic">
@@ -531,7 +533,7 @@ export default function RoomPainter() {
             </p>
             <div className="space-y-3 mb-6">
               <a
-                href="https://www.facebook.com/Corgan"
+                href="https://www.facebook.com/profile.php?id=100063497285003"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center justify-center gap-2 w-full py-3 bg-[#1877F2] hover:bg-[#166fe5] text-white font-semibold rounded-xl text-sm transition-colors"
