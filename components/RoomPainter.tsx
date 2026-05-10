@@ -384,7 +384,6 @@ export default function RoomPainter() {
                   <span className="w-5 h-5 rounded-full bg-corgan-navy text-white text-xs font-bold flex items-center justify-center flex-shrink-0">1</span>
                   <h3 className="font-bold text-corgan-navy text-sm uppercase tracking-wide">Analyse Room</h3>
                 </div>
-                <p className="text-xs text-gray-500 mb-3 ml-7">GPT-4o suggests colours that suit your space.</p>
                 <button
                   onClick={analyze}
                   disabled={analyzing}
